@@ -1,7 +1,7 @@
 ; this program will draw two thick lines in graphics mode
-; video memory starts at 26880
-; each line is 160 bytes long
-; each byte contains two pixels, four bits each: xrgbxrgb
+; video memory starts at 1024
+; each line is 80 bytes long
+; each byte contains 8 pixels, each bit is one pixel (1 - withe, 0-black)
 #include "consts.asm"
 #addr PROGRAM_START
 ; ########################################################
@@ -16,7 +16,7 @@
 	;mov.w r0, 1
 	;out [VGA_TEXT_INVERSE], r0	; inverse video
 	
-	call wipe
+	;call wipe
 
 	; now we continue with the demo
 	; first line (one pixel thick) at the top of the screen

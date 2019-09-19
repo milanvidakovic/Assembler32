@@ -1,5 +1,5 @@
 ; this program will draw two thick lines in graphics mode
-; video memory starts at 26880
+; video memory starts at 1024
 ; each line is 160 bytes long
 ; each byte contains two pixels, four bits each: xrgbxrgb
 #include "consts.asm"
