@@ -16,7 +16,7 @@
 	;mov.w r0, 1
 	;out [VGA_TEXT_INVERSE], r0	; inverse video
 	
-	;call wipe
+	call wipe
 
 	; now we continue with the demo
 	; first line (one pixel thick) at the top of the screen
