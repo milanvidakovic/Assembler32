@@ -2,20 +2,21 @@
 #addr PROGRAM_START
 	mov.s sp, 0xF000
 
-	call wipe
+;	call wipe
 	
-	mov.w r0, 1
-	sub.w r0, 1
-	callz print
-	halt
+;	mov.w r0, 1
+;	sub.w r0, 1
+;	callz print
+;	halt
 print:
-	mov.w r2, 1		  ; r2 will be added to the VIDEO
-	mov.w r1, 0  					; r1 will be added to the the address of the "HELLO WORLD" string
+	mov.w r2, VIDEO + 1	  ; r2 will be added to the VIDEO
+	mov.w r3, text + 1
+	mov.w r1, r3 - 1  				; r1 will be added to the the address of the "HELLO WORLD" string
 again:	
-	ld.b r0, [r1 + text]  ; load r0 with the content of the memory location to which r1 points (current character)
+	ld.b r0, [r1]  ; load r0 with the content of the memory location to which r1 points (current character)
 	cmp.b r0, 0           ; if the current character is 0 (string terminator),
 	jz end                ; go out of this loop 
-	st.b [r2 + VIDEO], r0  	 			; store the character at the VIDEO_0 + r2 
+	st.b [r2], r0  	 			; store the character at the VIDEO_0 + r2 
 	inc.w r1            	; move to the next character
 	add.w r2, 2           ; move to the next location in the video memory
 	j again               ; continue with the loop
@@ -28,7 +29,8 @@ end:
 	mov.w r0, 65
 	st.b [VIDEO + 161], r0
 
-	ret
+;	ret
+	halt
 	
 	
 
