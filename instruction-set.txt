@@ -249,35 +249,35 @@ udiv.w {dest: reg}, [{src: reg} - {value}]  -> src[3:0] @ dest[3:0] @ 4'0xd @ 4'
 udiv.b {dest: reg}, [{src: reg} + {value}]  -> src[3:0] @ dest[3:0] @ 4'0xf @ 4'0x8 @ value[31:16] @ value[15:0]
 udiv.b {dest: reg}, [{src: reg} - {value}]  -> src[3:0] @ dest[3:0] @ 4'0xf @ 4'0x8 @ -value[31:16] @ -value[15:0]
 
-inc.w {src: reg}                            -> 4'0x0    @ src[3:0]  @ 4'0x0 @ 4'0x9 
-inc.s [{src: reg}]                          -> 4'0x0    @ src[3:0]  @ 4'0x1 @ 4'0x9 
-inc.s [{src: reg} + {value}]  							-> 4'0x0    @ dest[3:0] @ 4'0x3 @ 4'0x9 @ value[31:16] @ value[15:0]
-inc.s [{src: reg} - {value}]   							-> 4'0x0    @ dest[3:0] @ 4'0x3 @ 4'0x9 @ -value[31:16] @ -value[15:0]
-inc.w [{src: reg} + {value}] 						  	-> 4'0x0    @ dest[3:0] @ 4'0x2 @ 4'0x9 @ value[31:16] @ value[15:0]
-inc.w [{src: reg} - {value}] 						  	-> 4'0x0    @ dest[3:0] @ 4'0x2 @ 4'0x9 @ -value[31:16] @ -value[15:0]
-inc.b [{src: reg} + {value}] 					  		-> 4'0x0    @ dest[3:0] @ 4'0x4 @ 4'0x9 @ value[31:16] @ value[15:0]
-inc.b [{src: reg} - {value}] 				  			-> 4'0x0    @ dest[3:0] @ 4'0x4 @ 4'0x9 @ -value[31:16] @ -value[15:0]
-uinc.s  [{src: reg} + {value}]  						-> 4'0x0    @ dest[3:0] @ 4'0x6 @ 4'0x9 @ value[31:16] @ value[15:0]
-uinc.s  [{src: reg} - {value}]  						-> 4'0x0    @ dest[3:0] @ 4'0x6 @ 4'0x9 @ -value[31:16] @ -value[15:0]
-uinc.w [{src: reg} + {value}]					  		-> 4'0x0    @ dest[3:0] @ 4'0x5 @ 4'0x9 @ value[31:16] @ value[15:0]
-uinc.w [{src: reg} - {value}]				  			-> 4'0x0    @ dest[3:0] @ 4'0x5 @ 4'0x9 @ -value[31:16] @ -value[15:0]
-uinc.b [{src: reg} + {value}]			  				-> 4'0x0    @ dest[3:0] @ 4'0x7 @ 4'0x9 @ value[31:16] @ value[15:0]
-uinc.b [{src: reg} - {value}]			  				-> 4'0x0    @ dest[3:0] @ 4'0x7 @ 4'0x9 @ -value[31:16] @ -value[15:0]
+inc.w {dest: reg}                           -> 4'0x0    @ dest[3:0] @ 4'0x0 @ 4'0x9 
+inc.s [{dest: reg}]                         -> 4'0x0    @ dest[3:0] @ 4'0x1 @ 4'0x9 
+inc.s [{dest: reg} + {value}]  							-> 4'0x0    @ dest[3:0] @ 4'0x3 @ 4'0x9 @ value[31:16] @ value[15:0]
+inc.s [{dest: reg} - {value}]   						-> 4'0x0    @ dest[3:0] @ 4'0x3 @ 4'0x9 @ -value[31:16] @ -value[15:0]
+inc.w [{dest: reg} + {value}] 						  -> 4'0x0    @ dest[3:0] @ 4'0x2 @ 4'0x9 @ value[31:16] @ value[15:0]
+inc.w [{dest: reg} - {value}] 						  -> 4'0x0    @ dest[3:0] @ 4'0x2 @ 4'0x9 @ -value[31:16] @ -value[15:0]
+inc.b [{dest: reg} + {value}] 					  	-> 4'0x0    @ dest[3:0] @ 4'0x4 @ 4'0x9 @ value[31:16] @ value[15:0]
+inc.b [{dest: reg} - {value}] 				  		-> 4'0x0    @ dest[3:0] @ 4'0x4 @ 4'0x9 @ -value[31:16] @ -value[15:0]
+uinc.s [{dest: reg} + {value}]  						-> 4'0x0    @ dest[3:0] @ 4'0x6 @ 4'0x9 @ value[31:16] @ value[15:0]
+uinc.s [{dest: reg} - {value}]  						-> 4'0x0    @ dest[3:0] @ 4'0x6 @ 4'0x9 @ -value[31:16] @ -value[15:0]
+uinc.w [{dest: reg} + {value}]					  	-> 4'0x0    @ dest[3:0] @ 4'0x5 @ 4'0x9 @ value[31:16] @ value[15:0]
+uinc.w [{dest: reg} - {value}]				  		-> 4'0x0    @ dest[3:0] @ 4'0x5 @ 4'0x9 @ -value[31:16] @ -value[15:0]
+uinc.b [{dest: reg} + {value}]			  			-> 4'0x0    @ dest[3:0] @ 4'0x7 @ 4'0x9 @ value[31:16] @ value[15:0]
+uinc.b [{dest: reg} - {value}]			  			-> 4'0x0    @ dest[3:0] @ 4'0x7 @ 4'0x9 @ -value[31:16] @ -value[15:0]
                                                       
-dec.w {src: reg}                            -> 4'0x0    @ src[3:0]  @ 4'0x8 @ 4'0x9 
-dec.s [{src: reg}]                          -> 4'0x0    @ src[3:0]  @ 4'0x9 @ 4'0x9 
-dec.s [{src: reg} + {value}] 							  -> 4'0x0    @ dest[3:0] @ 4'0xb @ 4'0x9 @ value[31:16] @ value[15:0]
-dec.s [{src: reg} - {value}]   							-> 4'0x0    @ dest[3:0] @ 4'0xb @ 4'0x9 @ -value[31:16] @ -value[15:0]
-dec.w [{src: reg} + {value}] 							  -> 4'0x0    @ dest[3:0] @ 4'0xa @ 4'0x9 @ value[31:16] @ value[15:0]
-dec.w [{src: reg} - {value}] 							  -> 4'0x0    @ dest[3:0] @ 4'0xa @ 4'0x9 @ -value[31:16] @ -value[15:0]
-dec.b [{src: reg} + {value}] 							  -> 4'0x0    @ dest[3:0] @ 4'0xc @ 4'0x9 @ value[31:16] @ value[15:0]
-dec.b [{src: reg} - {value}] 							  -> 4'0x0    @ dest[3:0] @ 4'0xc @ 4'0x9 @ -value[31:16] @ -value[15:0]
-udec.s [{src: reg} + {value}]  							-> 4'0x0    @ dest[3:0] @ 4'0xe @ 4'0x9 @ value[31:16] @ value[15:0]
-udec.s [{src: reg} - {value}]  							-> 4'0x0    @ dest[3:0] @ 4'0xe @ 4'0x9 @ -value[31:16] @ -value[15:0]
-udec.w [{src: reg} + {value}]						  	-> 4'0x0    @ dest[3:0] @ 4'0xd @ 4'0x9 @ value[31:16] @ value[15:0]
-udec.w [{src: reg} - {value}]					  		-> 4'0x0    @ dest[3:0] @ 4'0xd @ 4'0x9 @ -value[31:16] @ -value[15:0]
-udec.b [{src: reg} + {value}]					  		-> 4'0x0    @ dest[3:0] @ 4'0xf @ 4'0x9 @ value[31:16] @ value[15:0]
-udec.b [{src: reg} - {value}]					  		-> 4'0x0    @ dest[3:0] @ 4'0xf @ 4'0x9 @ -value[31:16] @ -value[15:0]
+dec.w {dest: reg}                           -> 4'0x0    @ dest[3:0]  @ 4'0x8 @ 4'0x9 
+dec.s [{dest: reg}]                         -> 4'0x0    @ dest[3:0]  @ 4'0x9 @ 4'0x9 
+dec.s [{dest: reg} + {value}] 							-> 4'0x0    @ dest[3:0] @ 4'0xb @ 4'0x9 @ value[31:16] @ value[15:0]
+dec.s [{dest: reg} - {value}]   						-> 4'0x0    @ dest[3:0] @ 4'0xb @ 4'0x9 @ -value[31:16] @ -value[15:0]
+dec.w [{dest: reg} + {value}] 							-> 4'0x0    @ dest[3:0] @ 4'0xa @ 4'0x9 @ value[31:16] @ value[15:0]
+dec.w [{dest: reg} - {value}] 							-> 4'0x0    @ dest[3:0] @ 4'0xa @ 4'0x9 @ -value[31:16] @ -value[15:0]
+dec.b [{dest: reg} + {value}] 							-> 4'0x0    @ dest[3:0] @ 4'0xc @ 4'0x9 @ value[31:16] @ value[15:0]
+dec.b [{dest: reg} - {value}] 							-> 4'0x0    @ dest[3:0] @ 4'0xc @ 4'0x9 @ -value[31:16] @ -value[15:0]
+udec.s [{dest: reg} + {value}]  						-> 4'0x0    @ dest[3:0] @ 4'0xe @ 4'0x9 @ value[31:16] @ value[15:0]
+udec.s [{dest: reg} - {value}]  						-> 4'0x0    @ dest[3:0] @ 4'0xe @ 4'0x9 @ -value[31:16] @ -value[15:0]
+udec.w [{dest: reg} + {value}]						  -> 4'0x0    @ dest[3:0] @ 4'0xd @ 4'0x9 @ value[31:16] @ value[15:0]
+udec.w [{dest: reg} - {value}]					  	-> 4'0x0    @ dest[3:0] @ 4'0xd @ 4'0x9 @ -value[31:16] @ -value[15:0]
+udec.b [{dest: reg} + {value}]					  	-> 4'0x0    @ dest[3:0] @ 4'0xf @ 4'0x9 @ value[31:16] @ value[15:0]
+udec.b [{dest: reg} - {value}]					  	-> 4'0x0    @ dest[3:0] @ 4'0xf @ 4'0x9 @ -value[31:16] @ -value[15:0]
 
 cmp.w {dest: reg}, {src: reg}               -> src[3:0] @ dest[3:0] @ 4'0x0 @ 4'0xa
 cmp.b {dest: reg}, {value}                  ->    4'0x0 @ dest[3:0] @ 4'0x9 @ 4'0xe @ 8'0x00 @ value[7:0]
@@ -296,7 +296,7 @@ ucmp.w {dest: reg}, [{src: reg} - {value}]  -> src[3:0] @ dest[3:0] @ 4'0x5 @ 4'
 ucmp.b {dest: reg}, [{src: reg} + {value}]  -> src[3:0] @ dest[3:0] @ 4'0x7 @ 4'0xa @ value[31:16] @ value[15:0]
 ucmp.b {dest: reg}, [{src: reg} - {value}]  -> src[3:0] @ dest[3:0] @ 4'0x7 @ 4'0xa @ -value[31:16] @ -value[15:0]
 
-inv.w {src: reg}                            -> 4'0x0    @ src[3:0]  @ 4'0x8 @ 4'0xa 
+inv.w {dest: reg}                           -> 4'0x0    @ dest[3:0]  @ 4'0x8 @ 4'0xa 
 inv.s {dest: reg}, [{src: reg} + {value}]   -> src[3:0] @ dest[3:0] @ 4'0xb @ 4'0xa @ value[31:16] @ value[15:0]
 inv.s {dest: reg}, [{src: reg} - {value}]   -> src[3:0] @ dest[3:0] @ 4'0xb @ 4'0xa @ -value[31:16] @ -value[15:0]
 inv.w {dest: reg}, [{src: reg} + {value}]   -> src[3:0] @ dest[3:0] @ 4'0xa @ 4'0xa @ value[31:16] @ value[15:0]
