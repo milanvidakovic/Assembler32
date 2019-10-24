@@ -13,8 +13,8 @@
 	mov.w r0, 2
 	out [PORT_VIDEO_MODE], r0  ; set the video mode to 640x480 two colors graphics
 	
-	;mov.w r0, 1
-	;out [VGA_TEXT_INVERSE], r0	; inverse video
+	mov.w r0, 1
+	out [VGA_TEXT_INVERSE], r0	; inverse video
 	
 	call wipe
 

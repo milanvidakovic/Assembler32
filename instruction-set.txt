@@ -296,13 +296,13 @@ ucmp.w {dest: reg}, [{src: reg} - {value}]  -> src[3:0] @ dest[3:0] @ 4'0x5 @ 4'
 ucmp.b {dest: reg}, [{src: reg} + {value}]  -> src[3:0] @ dest[3:0] @ 4'0x7 @ 4'0xa @ value[31:16] @ value[15:0]
 ucmp.b {dest: reg}, [{src: reg} - {value}]  -> src[3:0] @ dest[3:0] @ 4'0x7 @ 4'0xa @ -value[31:16] @ -value[15:0]
 
-inv.w {dest: reg}                           -> 4'0x0    @ dest[3:0]  @ 4'0x8 @ 4'0xa 
-inv.s {dest: reg}, [{src: reg} + {value}]   -> src[3:0] @ dest[3:0] @ 4'0xb @ 4'0xa @ value[31:16] @ value[15:0]
-inv.s {dest: reg}, [{src: reg} - {value}]   -> src[3:0] @ dest[3:0] @ 4'0xb @ 4'0xa @ -value[31:16] @ -value[15:0]
-inv.w {dest: reg}, [{src: reg} + {value}]   -> src[3:0] @ dest[3:0] @ 4'0xa @ 4'0xa @ value[31:16] @ value[15:0]
-inv.w {dest: reg}, [{src: reg} - {value}]   -> src[3:0] @ dest[3:0] @ 4'0xa @ 4'0xa @ -value[31:16] @ -value[15:0]
-inv.b {dest: reg}, [{src: reg} + {value}]   -> src[3:0] @ dest[3:0] @ 4'0xc @ 4'0xa @ value[31:16] @ value[15:0]
-inv.b {dest: reg}, [{src: reg} - {value}]   -> src[3:0] @ dest[3:0] @ 4'0xc @ 4'0xa @ -value[31:16] @ -value[15:0]
+inv.w {dest: reg}               -> 4'0x0    @ dest[3:0] @ 4'0x8 @ 4'0xa 
+inv.s [{dest: reg} + {value}]   -> 4'0x0    @ dest[3:0] @ 4'0xb @ 4'0xa @ value[31:16] @ value[15:0]
+inv.s [{dest: reg} - {value}]   -> 4'0x0    @ dest[3:0] @ 4'0xb @ 4'0xa @ -value[31:16] @ -value[15:0]
+inv.w [{dest: reg} + {value}]   -> 4'0x0    @ dest[3:0] @ 4'0xa @ 4'0xa @ value[31:16] @ value[15:0]
+inv.w [{dest: reg} - {value}]   -> 4'0x0    @ dest[3:0] @ 4'0xa @ 4'0xa @ -value[31:16] @ -value[15:0]
+inv.b [{dest: reg} + {value}]   -> 4'0x0    @ dest[3:0] @ 4'0xc @ 4'0xa @ value[31:16] @ value[15:0]
+inv.b [{dest: reg} - {value}]   -> 4'0x0    @ dest[3:0] @ 4'0xc @ 4'0xa @ -value[31:16] @ -value[15:0]
 
 
 fadd {dest: reg}, {src: reg}  -> src[3:0] @ dest[3:0] @ 4'0x2 @ 4'0xb

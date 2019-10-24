@@ -94,8 +94,31 @@
 	call print_hex
 	add.w sp, 8      	  ; return the stack pointer to the state before calling the print_str
 
+
+	mov.w r1, 100000
+	mov.w r2, 5
+	st.w [r1], r2
+	inc.w [r1 + 0]
+	ld.w r0, [r1]			; r0 <- 6
+	push 18*160				; cursor offset: 18'th row, the first character
+	push r0
+	call print_num
+	add.w sp, 8      	  ; return the stack pointer to the state before calling the print_str
+
+	mov.w r1, 100000
+	mov.w r2, 0xF0
+	st.s [r1], r2
+	inv.s [r1 + 0]
+	ld.s r0, [r1]			; r0 <- 0x0F
+	push 19*160				; cursor offset: 18'th row, the first character
+	push r0
+	call print_hex
+	add.w sp, 8      	  ; return the stack pointer to the state before calling the print_str
+
+
 	halt
 #include "stdio.asm"
+
 
 hello_str:
 	#str "Hello World!\0"
