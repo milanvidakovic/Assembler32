@@ -1,0 +1,16 @@
+call asmb.bat  graphics.asm
+call asmb.bat  graphics640.asm
+call asmb.bat  hello_attr.asm
+call asmb.bat  hello_world.asm
+call asmb.bat  hello_world2.asm
+call asmb.bat  keyboard_editor.asm
+call asmb.bat  keyboard_uart.asm
+call asmb.bat  led.asm
+call asmb.bat  led2.asm
+call asmb.bat  snakes.asm
+call asmb.bat  sprites.asm
+call asmb.bat  test_bytes.asm
+call asmb.bat  test_irq.asm
+call asmb.bat  test_stdio.asm
+call asmb.bat  uart_echo.asm
+call asmb.bat  uart_echo2.asm

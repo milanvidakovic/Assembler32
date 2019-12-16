@@ -1,6 +1,6 @@
 #include "consts.asm"
 #addr PROGRAM_START
-	mov.s sp, 0xF000
+	mov.w sp, 0xF000
 
 ;	call wipe
 	

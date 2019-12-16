@@ -1,9 +1,6 @@
 #include "consts.asm"
 #addr PROGRAM_START
-	mov.s sp, 0xF000
-
-	mov.w r0, 0
-	out [PORT_VIDEO_MODE], r0  ; set the video mode to text
+	mov.w sp, 0xF000
 
 	call wipe
 	

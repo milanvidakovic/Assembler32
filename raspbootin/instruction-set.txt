@@ -59,6 +59,7 @@ jnp {value}                  -> 8'0x00 @ 4'0x8 @ 4'0x1 @ value[31:16] @ value[15
 js {value}                   -> 8'0x00 @ 4'0x8 @ 4'0x1 @ value[31:16] @ value[15:0]
 jg {value}                   -> 8'0x00 @ 4'0x9 @ 4'0x1 @ value[31:16] @ value[15:0]
 jse {value}                  -> 8'0x00 @ 4'0xa @ 4'0x1 @ value[31:16] @ value[15:0]
+jr {src:reg}       -> src[3:0] @ 4'0x0 @ 4'0xf @ 4'0x1 
                              
 call {value}                 -> 8'0x00 @ 4'0x0 @ 4'0x2 @ value[31:16] @ value[15:0]
 callz {value}                -> 8'0x00 @ 4'0x1 @ 4'0x2 @ value[31:16] @ value[15:0]

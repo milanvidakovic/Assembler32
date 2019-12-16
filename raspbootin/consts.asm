@@ -14,16 +14,16 @@ SPRITE_DEFINITION_ADDRESS = 64  ; beginning of the sprite definition structure
 ; each sprite definition is 8 bytes long
 ; this means that the next sprite is at the address of 64
 
-PORT_UART_RX_BYTE					= 64	; port which contains received byte via UART
-PORT_UART_TX_BUSY					= 65	; port which has 1 when UART TX is busy
-PORT_UART_TX_SEND_BYTE		= 66	; port for sending character via UART
-PORT_LED									= 67	; port for setting eight LEDs (write)
-PORT_KEYBOARD 						= 68	; raw keyboard character read port 
-PORT_MILLIS 							= 69	; current number of milliseconds counted so far
+PORT_UART_RX_BYTE					= 640	; port which contains received byte via UART
+PORT_UART_TX_BUSY					= 650	; port which has 1 when UART TX is busy
+PORT_UART_TX_SEND_BYTE		= 660	; port for sending character via UART
+PORT_LED									= 670	; port for setting eight LEDs (write)
+PORT_KEYBOARD 						= 680	; raw keyboard character read port 
+PORT_MILLIS 							= 690	; current number of milliseconds counted so far
 
-PORT_VIDEO_MODE						= 128	; video mode type (0-text; 1-graphics 320x240 8 colors, spirtes; 2-graphics 640x480 2 colors, no sprites) (write)
-PORT_TIMER     						= 129	; timer irq port (number of milliseconds before the irq is triggered)
-VGA_TEXT_INVERSE					= 130	; if 1, then the screen is inversed (black letters on white background) (write)
+PORT_VIDEO_MODE						= 1280	; video mode type (0-text; 1-graphics), (write)
+PORT_TIMER     						= 1290	; timer irq port (number of milliseconds before the irq is triggered)
+VGA_TEXT_INVERSE					= 1300	; if 1, then the screen is inversed (black letters on white background)
 
 VK_0								= 48
 VK_1								= 49

@@ -1,5 +1,9 @@
 ; this is the boot loader compatible with the raspbootin loader
 VIDEO = 1024 ; beginning of the text frame buffer
+PORT_UART_RX_BYTE					= 640	; port which contains received byte via UART
+PORT_UART_TX_BUSY					= 650	; port which has 1 when UART TX is busy
+PORT_UART_TX_SEND_BYTE		= 660	; port for sending character via UART
+
 UART_HANDLER_ADDR	= 16	; uart IRQ#1 handler (uart receive byte handler)
 PROGRAM_START = 0xB000		; loaded program start address
 
@@ -65,13 +69,13 @@ uart_send:
 	push r1
 	
 uagain:	
-	in r1, [65]   ; tx busy in r1
+	in r1, [PORT_UART_TX_BUSY]   ; tx busy in r1
 	cmp.w r1, 0     
 	jz not_busy   ; if not busy, send the given character
 	nop						; waste a little bit of time
 	j uagain		  ; otherwise, go again
 not_busy:
-	out [66], r0  ; send the received character to the UART
+	out [PORT_UART_TX_SEND_BYTE], r0  ; send the received character to the UART
 	
 	pop r1
 	ret	
@@ -132,7 +136,7 @@ irq_triggered:
 	; if the state is 4, then the code started to arrive via UART	
 	; ###########################################################
 	
-	in r1, [64]						; get the byte from the uart into r1
+	in r1, [PORT_UART_RX_BYTE]						; get the byte from the uart into r1
 
 	ld.w r0, [sum_all]
 	add.w r0, r1
@@ -170,14 +174,14 @@ all_arrived:
 	j skip
 
 first_byte:
-	in r1, [64]						; get the char from the uart
+	in r1, [PORT_UART_RX_BYTE]						; get the char from the uart
 	st.w [size], r1				; store the lowest byte to the size variable
 	ld.w r1, [state]
 	inc.w r1
 	st.w [state], r1				; next state -> 1 (second byte)	
 	j skip								; return from interrupt
 second_byte:
-	in r1, [64]						; get the char from the uart (8 upper bits)
+	in r1, [PORT_UART_RX_BYTE]						; get the char from the uart (8 upper bits)
 	ld.w r2, [size]					; get the lower 8 bits (received earlier)
 	shl.w r1, 8							; shift the received byte 8 bits to the left to become upper byte
 	or.w r1, r2							; put together lower and upper 8 bits
